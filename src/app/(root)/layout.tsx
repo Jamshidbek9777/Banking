@@ -3,6 +3,7 @@
 import { PropsWithChildren, useEffect } from "react";
 import { Header } from "@/components";
 import { usePathname } from "next/navigation";
+import Footer from "@/components/footer/footer";
 // import { usePathname } from "@/navigation";
 
 // export async function generateMetadata({ params: { locale } }: { params: { locale: string } }) {
@@ -26,6 +27,8 @@ export default function RootLayout({ children }: PropsWithChildren) {
                <Header />
 
                {children}
+
+               {/* <Footer /> */}
           </>
      );
 }

@@ -8,10 +8,13 @@ import { useRouter } from "next/navigation";
 
 const Login = () => {
      const [form] = useForm();
+
+     const router = useRouter();
+
      const handleFinish = (values: any) => {
           console.log(values);
      };
-     const router = useRouter();
+
      return (
           <Container style={{ marginTop: "200px" }}>
                <Flex justify="center">
@@ -22,7 +25,7 @@ const Login = () => {
                               width: "var(--full)",
                          }}>
                          <Box $justify="center" $align="center" $mb="var(--xl)">
-                              <h1 style={{ fontSize: "30px" }}>Login</h1>
+                              <h1 style={{ fontSize: "30px" }}>Register</h1>
 
                               {/* <NavigationLink href={ROUTES.home}>
                                    <LuX
@@ -32,6 +35,9 @@ const Login = () => {
                               </NavigationLink> */}
                          </Box>
                          <Form form={form} onFinish={handleFinish}>
+                              <Form.Item name={"name"}>
+                                   <Input placeholder="Full name" />
+                              </Form.Item>
                               <Form.Item name={"email"}>
                                    <Input placeholder="Email" />
                               </Form.Item>
@@ -41,22 +47,17 @@ const Login = () => {
                               <Flex
                                    justify="space-between"
                                    style={{ marginBottom: "10px" }}>
-                                   <p>Don't have an account? </p>
-                                   <p
-                                        style={{ cursor: "pointer" }}
-                                        onClick={() =>
-                                             router.push("/register")
-                                        }>
-                                        Register
+                                   <p>Have an account? </p>
+                                   <p style={{cursor:"pointer"}} onClick={() => router.push("/login")}>
+                                        Login
                                    </p>
                               </Flex>
-
                               <Button
-                                   onClick={() => router.push("/")}
                                    htmlType="submit"
                                    block
                                    size="large"
-                                   type="primary">
+                                   type="primary"
+                                   onClick={() => router.push("/")}>
                                    Submit
                               </Button>
                          </Form>
